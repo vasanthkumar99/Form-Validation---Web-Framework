@@ -1,0 +1,358 @@
+<html>
+<head>
+<style type="text/css">
+h1 {
+    color: DarkRed ;
+    font-family:  Algerian;
+    font-size: 350%;
+}
+#TxtEmail
+{
+	color: darkred;
+    	font-family:vardana;
+	background-color:AntiqueWhite ;
+}
+#TxtName
+{
+	color: darkred;
+    	font-family:vardana;
+	background-color: AntiqueWhite ;
+}
+#TxtNumber
+{
+	color: darkred;
+    	font-family:vardana;
+	background-color: AntiqueWhite ;
+}
+#TxtPass
+{
+	color: darkred;
+    	font-family:vardana;
+	background-color: AntiqueWhite ;
+}
+#rdMale
+{
+	color:darkred;
+    	background-color: orange;
+}
+#rdFemale
+{
+	color:darkred;
+    	background-color: orange;
+}
+#TxtUser
+{
+	color: darkred;
+    	font-family:vardana;
+	background-color: AntiqueWhite ;
+}
+#BtnLogin
+{
+	color: darkred;
+    	font-family:vardana;
+	background-color:PeachPuff ;
+}
+
+#btnsave
+{
+	color: darkred;
+    	font-family:vardana;
+	background-color:PeachPuff ;
+}
+#btnclr 
+{
+	color: darkred;
+    	font-family:vardana;
+	background-color:coral;
+}
+
+p  {
+    color: cyan;
+    font-family:vardana;
+    font-size: 160%;
+}
+body
+{
+background-color:AntiqueWhite ;
+background-image: url('bgm.jpg');
+background-repeat: no-repeat;
+}
+</style>
+<script src="jquery.js"></script>
+
+<script type ="text/javascript">
+$(document).ready(function()
+{
+alert("Welcome to the Jquery Applicatons ");
+});
+
+
+
+
+
+
+
+function result()
+{
+var fn=document.getElementById("TxtName").value;
+var sn=document.getElementById("TxtNumber").value;
+var t=parseInt(fn)+parseInt(sn);
+document.write("The total is : "+t);
+}
+
+function convert()
+{
+var name=document.getElementById("TxtName").value;
+var list=name.split(" ");
+var data="";
+for(var i=0;i<list.length;i++)
+{
+var val=list[i].substring(0,1).toUpperCase()+list[i].substr(1,list[i].length-1).toLowerCase();
+data=data+val+" ";
+}
+
+document.write("Original String is :  "+name);
+document.write("</br>")
+document.write("Converted String is :  "+data);
+}
+
+function validate()
+{
+// Valid Name
+
+	var name = document.getElementById("TxtName").value;
+	if (name.length>0)
+	{
+		var r= new RegExp("^[A-Z]{1}[a-z]+(\\s[A-Z]{1}[a-z]+)*$");
+		if(r.test(name))
+		{
+		alert("Valid Name ");
+	 	}
+		else
+		{
+		alert("Name is not in Right Format!!");
+		return false;
+		}
+	}
+	else
+	{
+		alert("Enter the Name ");
+		return false;
+	}
+
+//valid email
+
+	var email=document.getElementById("TxtEmail").value;
+	if(email.length>0)
+	{
+		var e= new RegExp("^[a-z]\\w+@\\w+\\.[a-z]{3}$");
+		if (e.test(email))
+		{
+		alert("Valid Email ");
+		}
+		else
+		{
+		alert("Email is not in right format.");
+		return false;
+		}
+	}
+	else
+	{
+		alert("Enter email!!!");
+		return false;
+	}
+
+//Valid Number
+
+	var num=document.getElementById("TxtNumber").value;
+	if (num.length>0)
+	{
+		var n= new RegExp("^[6-9]{1}[0-9]{9}$");
+		if (n.test(num))
+		{
+		alert("Valid Number");
+		}
+		else
+		{
+		alert("Number is not in right format.");
+		return false;
+		}
+	}
+	else
+	{
+		alert("Enter Number ");
+		return false;
+	}
+
+// Validate Gender Selection
+
+	var male=document.getElementById("rdMale").checked;
+	var female=document.getElementById("rdFemale").checked;
+	if (male || female)
+	{
+	//return true;
+	}
+	else
+	{
+	alert("Choose your Gender. ");
+	return false;
+	}
+
+// validate the location
+
+	var loc = document.getElementById("Location").selectedIndex;
+	if(loc>0)
+	{
+	//return true;
+	}
+	else
+	{
+	alert("Choose the Location");
+	return false;
+	}
+
+//Validate terms and conditions
+	var con=document.getElementById("ChkTerms").checked;
+	alert(con);
+	if(!con)
+	{
+	alert("You should accept terms and conditions");
+	return false;
+	}
+	else
+	{
+	return true;
+	}
+
+
+}
+
+function validatelog()
+{
+
+//valid User name
+
+	var usr=document.getElementById("TxtUser").value;
+	if(usr.length>0)
+	{
+		var u= new RegExp("^[a-z]\\w+@\\w+\\.[a-z]{3}$");
+		if (u.test(usr))
+		{
+		alert("Valid Email ");
+		}
+		else
+		{
+		alert("Email is not in right format.");
+		return false;
+		}
+	}
+	else
+	{
+		alert("Enter email!!!");
+		return false;
+	}
+// Valid Pass word
+
+	var pass = document.getElementById("TxtPass").value;
+	if (pass.length>0)
+	{
+		
+	}
+	else
+	{
+		alert("Enter the Password ");
+		return false;
+	}
+
+}
+
+</script>
+
+</head>
+<body>
+
+<div>
+<center>
+
+<h1>Alvas Institute of Engineering and Technology</h1>
+<img src="logo.jpg" width="200px" alt="College Elevation" height="200px">
+</center>
+</div>
+<hr/>
+<div style="border:solid medium maroon; color:snow ; width:40%; height:300px; padding:20px; position:relative; display:inline-block; margin:10px">
+<h2>Login</h2>
+
+<form id="frmLogin">
+<table>
+<tr>
+	<td>User Name</td>
+	<td><input type="text" id="TxtUser" name ="TxtUser" maxlength="20" /></td>
+</tr>
+<tr>
+	<td>Password</td>
+	<td><input type="password"  id="TxtPass" name ="TxtPass" maxlength="20"/></td>
+</tr>
+<tr>
+	<td><input type="submit"  id="BtnLogin" Value="Login" onClick="return validatelog()" /></td>
+</tr>
+</table>
+</form>
+
+</div>
+<div style="border:solid medium maroon; color:snow ; width:40%; height:300px; margin:10px; padding-left:30px; padding-top:30px; float:right"><h2>Registration</h2>
+<form id="frmRegistration" action="my_page.html" method="get">
+<table>
+<tr>
+	<td>Name</td>
+	<td><input type="text" id="TxtName" name ="TxtName "maxlength="20" /></td>
+</tr>
+<tr>
+	<td>Email</td>
+	<td><input type="text"  id="TxtEmail" name="TxtEmail" maxlength="20"/></td>
+</tr>
+<tr>
+	<td>Mobile</td>
+	<td><input type="text"  id="TxtNumber" name="TxtNumber" maxlength="10"/></td>
+</tr>
+<tr>
+	<td>Gender</td>
+	<td><input type="Radio"  name="Gender" id="rdMale" name="rdMale" />Male</td>
+	<td><input type="Radio"  name="Gender" id="rdFemale" name="rdFemale"/>Female</td>
+</tr>
+<tr>
+	<td>Location</td>
+	<td>  
+	<select id ="Location" name= "Location">
+	<option>Choose location</option>
+	<option>Bangalore</option>
+	<option>Mangalore</option>
+	<option>Chennai</option>
+	<option>Delhi</option>
+	<option>Kolar</option>
+	<option>Madikeri</option>
+</select>
+</td>
+</tr>
+<tr>
+	<td><input type="CheckBox" id="ChkTerms" name="ChkTerms"/>
+	<u>I agree to the terms and <a href="https://Google.com">conditions</a></td>
+</tr>
+<tr>
+	<td><input type="Submit" id="btnsave" name="btnsave" Value="Save" onClick="return validate()"/></td>
+	<td><input type="Reset" id="btnclr"  name="btnclr" Value="Clear"/></td>
+</tr>
+	
+</table>
+</form>
+</div>
+
+<hr/>
+
+
+
+<div><center><p ><i>Copy rights &copy; All rights are reserved to AIET &reg; Moodbidri</i></p></center>
+</div>
+</p>
+</body>
+
+</html>
